@@ -4,8 +4,6 @@ import { ThreeDMenuItem } from "../../components/ThreeDMenuItem";
 import { useNavigate } from "react-router-dom";
 import { Text3D, Center, Sphere } from "@react-three/drei";
 import THREE, { BackSide, TextureLoader, RepeatWrapping, Vector2 } from "three";
-import sarcomere from "../../assets/models/sarcomere.gltf";
-import space from "../../assets/textures/space.jpg";
 
 const ThreeDHome: React.FC = () => {
     return (
@@ -22,7 +20,10 @@ const ThreeDHome: React.FC = () => {
 const ThreeDMenu: React.FC = () => {
     const navigate = useNavigate();
 
-    const spaceTexture = useLoader(TextureLoader, space);
+    const spaceTexture = useLoader(
+        TextureLoader,
+        process.env.PUBLIC_URL + "/assets/textures/space.jpg"
+    );
 
     const text = useRef<THREE.Group>(null!);
     const sphere = useRef<THREE.Mesh>(null!);
@@ -56,7 +57,10 @@ const ThreeDMenu: React.FC = () => {
             >
                 <Text3D
                     scale={1}
-                    font={"/Roboto_Regular.json"}
+                    font={
+                        process.env.PUBLIC_URL +
+                        "/assets/fonts/Roboto_Regular.json"
+                    }
                     getObjectsByProperty={undefined}
                     getVertexPosition={undefined}
                 >
@@ -64,7 +68,7 @@ const ThreeDMenu: React.FC = () => {
                 </Text3D>
             </Center>
             <ThreeDMenuItem
-                model={sarcomere}
+                model={process.env.PUBLIC_URL + "/assets/models/sarcomere.gltf"}
                 position={[0, 0, 3.5]}
                 text={"SarcoSim"}
                 onClick={() => navigate("/sarcosim")}
