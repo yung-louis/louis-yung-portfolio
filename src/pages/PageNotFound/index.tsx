@@ -10,7 +10,7 @@ const PageNotFound: React.FC = () => {
                 spacing={5}
                 sx={{
                     display: "flex",
-                    height: "100vh",
+                    height: "100%",
                     justifyContent: "center",
                     alignItems: "center",
                 }}
