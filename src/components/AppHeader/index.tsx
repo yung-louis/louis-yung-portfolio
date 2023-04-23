@@ -3,9 +3,12 @@ import React from "react";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const AppHeader: React.FC = () => {
+const AppHeader: React.FC<{
+    state: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+}> = ({ state }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [threeD, setThreeD] = state;
     return (
         <>
             <Stack
@@ -14,7 +17,10 @@ const AppHeader: React.FC = () => {
                 justifyContent="space-between"
             >
                 <Stack direction="row" alignItems="center">
-                    <Switch defaultChecked />
+                    <Switch
+                        checked={threeD}
+                        onChange={(_event, checked) => setThreeD(checked)}
+                    />
                     <Typography>3D Graphics</Typography>
                 </Stack>
                 {location.pathname !== "/" && (
