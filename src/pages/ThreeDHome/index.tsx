@@ -4,6 +4,8 @@ import { ThreeDMenuItem } from "../../components/ThreeDMenuItem";
 import { useNavigate } from "react-router-dom";
 import { Text3D, Center, Sphere } from "@react-three/drei";
 import THREE, { BackSide, TextureLoader, RepeatWrapping, Vector2 } from "three";
+import sarcomere from "../../assets/models/sarcomere.gltf";
+import space from "../../assets/textures/space.jpg";
 
 const ThreeDHome: React.FC = () => {
     return (
@@ -20,7 +22,7 @@ const ThreeDHome: React.FC = () => {
 const ThreeDMenu: React.FC = () => {
     const navigate = useNavigate();
 
-    const spaceTexture = useLoader(TextureLoader, "textures/space.jpg");
+    const spaceTexture = useLoader(TextureLoader, space);
 
     const text = useRef<THREE.Group>(null!);
     const sphere = useRef<THREE.Mesh>(null!);
@@ -62,7 +64,7 @@ const ThreeDMenu: React.FC = () => {
                 </Text3D>
             </Center>
             <ThreeDMenuItem
-                model="models/sarcomere.gltf"
+                model={sarcomere}
                 position={[0, 0, 3.5]}
                 text={"SarcoSim"}
                 onClick={() => navigate("/sarcosim")}
