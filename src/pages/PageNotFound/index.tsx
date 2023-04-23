@@ -19,7 +19,7 @@ const PageNotFound: React.FC = () => {
                     404: Page Not Found :(
                 </Typography>
                 <Button variant="contained" onClick={() => navigate("/")}>
-                    Return to the home page
+                    Return to the Home page
                 </Button>
             </Stack>
         </>
