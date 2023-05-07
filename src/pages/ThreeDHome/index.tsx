@@ -7,7 +7,7 @@ import THREE, { BackSide, TextureLoader, RepeatWrapping, Vector2 } from "three";
 
 const ThreeDHome: React.FC = () => {
     return (
-        <div style={{ width: "100vw", height: "100vh" }}>
+        <div style={{ width: "100%", height: "100%" }}>
             <Canvas flat linear camera={{ position: [0, 0, 15], fov: 45 }}>
                 <Suspense fallback={null}>
                     <ThreeDMenu />
